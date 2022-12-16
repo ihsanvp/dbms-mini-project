@@ -1,0 +1,32 @@
+:root {
+  --sidebar-width: 300px;
+}
+
+body {
+  font-family: Roboto;
+}
+
+main {
+  padding-left: var(--sidebar-width);
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: var(--sidebar-width);
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+#sidebar .nav {
+  --bs-nav-link-color: gray;
+  --bs-nav-link-hover-color: darkviolet;
+}
+
+#sidebar .nav-pills {
+  --bs-nav-pills-link-active-bg: darkviolet;
+  --bs-nav-link-hover-color: darkviolet;
+}
