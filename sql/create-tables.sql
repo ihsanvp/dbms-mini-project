@@ -1,0 +1,26 @@
+CREATE TABLE doctors (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(20) NOT NULL,
+  age INT NOT NULL,
+  specialization VARCHAR(30) NOT NULL,
+  mobile VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE patients (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(20) NOT NULL,
+  age INT NOT NULL,
+  mobile VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE appointments (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  doctor_id INT NOT NULL,
+  patient_id INT NOT NULL,
+  date DATE NOT NULL,
+  token_no INT NOT NULL,
+
+  FOREIGN KEY (doctor_id) REFERENCES doctors(id),
+  FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
