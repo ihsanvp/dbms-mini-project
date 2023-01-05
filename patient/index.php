@@ -1,6 +1,6 @@
 <?php
 include "../lib/render_sidebar.php";
-include "../lib/connect_db.php";
+include_once "../lib/connect_db.php";
 
 $db = connect_db();
 $doctors = $db->query("select * from doctors");
@@ -21,7 +21,7 @@ if (!$doctors) {
     Book Appointment
   </nav>
   <main>
-    <form class="container mx-auto py-10" id="appointment-form">
+    <form action="/patient/booking.php" method="POST" class="container mx-auto py-10" id="appointment-form">
       <div class="text-2xl font-medium text-gray-500">Patient Details</div>
       <div class="p-5 grid grid-cols-12 items-center justify-center gap-y-5">
         <!-- Name -->
@@ -92,25 +92,6 @@ if (!$doctors) {
   </main>
 </body>
 
-<script>
-  const form = document.querySelector("#appointment-form")
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    const data = new FormData(form)
-    fetch({
-      url: "/api/book-appointment.php",
-      method: "POST",
-      body: data
-    }).then(res => {
-      if (res.ok) {
-        console.log("ok")
-        res.json().then(data => console.log(data))
-      } else {
-        console.log("not")
-      }
-    })
-  })
-</script>
 
 </html>
